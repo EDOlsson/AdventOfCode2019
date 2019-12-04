@@ -24,4 +24,7 @@ let main argv =
     let day2a = runDay2Part1
     printfn "Day 2 - part 1 >> %d" day2a
 
+    let day2b = runDay2Part2
+    printfn "Day 2 - part 2 >> %d" day2b
+
     0 // return an integer exit code

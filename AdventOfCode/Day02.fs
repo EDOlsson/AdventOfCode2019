@@ -89,3 +89,16 @@ let runDay2Part1 =
     let result = executeProgram initializedMemory
 
     result.[0]
+
+let runDay2Part2 =
+    let memory = readInput
+
+    seq { 
+        for noun in 0..99 do
+        for verb in 0..99 do
+        yield (100 * noun + verb, (executeProgram (initializeMemory noun verb memory)))
+     }
+     |> Seq.filter (fun (_, memory) -> memory.[0] = 19690720 )
+     |> Seq.map (fun (answer, _) -> answer)
+     |> Seq.take 1
+     |> Seq.head
