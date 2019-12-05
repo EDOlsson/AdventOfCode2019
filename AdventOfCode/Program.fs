@@ -4,6 +4,7 @@ open System
 open Day1
 open Day2
 open Day3
+open Day4
 
 [<EntryPoint>]
 let main argv =
@@ -37,12 +38,18 @@ let main argv =
     //
     // Day 3
     //
-    testDay3Part1 |> ignore
+    // testDay3Part1 |> ignore
     // let day3a = day3Part1
 
     // printfn "Day 3 - part 1 >> %d" day3a
 
-    testDay3Part2 |> ignore
-    printfn "Day 3 - part 2 >> %d" <| day3Part2
+    // testDay3Part2 |> ignore
+    // printfn "Day 3 - part 2 >> %d" <| day3Part2
+
+    //
+    // Day 4
+    //
+    testDay4Part1 |> ignore
+    printfn "Day 4 - part 1 >> %d" <| day4Part1
 
     0 // return an integer exit code
