@@ -38,8 +38,11 @@ let main argv =
     // Day 3
     //
     testDay3Part1 |> ignore
-    let day3a = day3Part1
+    // let day3a = day3Part1
 
-    printfn "Day 3 - part 1 >> %d" day3a
+    // printfn "Day 3 - part 1 >> %d" day3a
+
+    testDay3Part2 |> ignore
+    printfn "Day 3 - part 2 >> %d" <| day3Part2
 
     0 // return an integer exit code
