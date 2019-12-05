@@ -52,4 +52,7 @@ let main argv =
     testDay4Part1 |> ignore
     printfn "Day 4 - part 1 >> %d" <| day4Part1
 
+    testDay4Part2 |> ignore
+    printfn "Day 4 - part 2 >> %d" <| day4Part2
+
     0 // return an integer exit code
