@@ -5,6 +5,7 @@ open Day1
 open Day2
 open Day3
 open Day4
+open Day5
 
 [<EntryPoint>]
 let main argv =
@@ -49,10 +50,16 @@ let main argv =
     //
     // Day 4
     //
-    testDay4Part1 |> ignore
-    printfn "Day 4 - part 1 >> %d" <| day4Part1
+    // testDay4Part1 |> ignore
+    // printfn "Day 4 - part 1 >> %d" <| day4Part1
 
-    testDay4Part2 |> ignore
-    printfn "Day 4 - part 2 >> %d" <| day4Part2
+    // testDay4Part2 |> ignore
+    // printfn "Day 4 - part 2 >> %d" <| day4Part2
+
+    //
+    // Day 5
+    //
+    let day5Computer = day5Part1
+    printfn "Day 5 - part 1 >> %d" <| (day5Computer.outputs |> List.head)
 
     0 // return an integer exit code
