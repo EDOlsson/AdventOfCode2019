@@ -59,7 +59,10 @@ let main argv =
     //
     // Day 5
     //
-    let day5Computer = day5Part1
-    printfn "Day 5 - part 1 >> %d" <| (day5Computer.outputs |> List.head)
+    // let day5Computer = day5Part1 readInput
+    // printfn "Day 5 - part 1 >> %d" <| (day5Computer.outputs |> List.head)
+
+    let day5Computer' = day5Part2 readInput
+    printfn "Day 5 - part 2 >> %d" <| (day5Computer'.outputs |> List.head)
 
     0 // return an integer exit code
