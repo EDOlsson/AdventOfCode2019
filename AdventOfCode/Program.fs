@@ -85,8 +85,36 @@ let main argv =
     // let day6Part1Test1 = runDay6Part1 testMap
     // printfn "Day 6 - part 1 (Test) >> %d" <| day6Part1Test1
 
-    let day6Part1Input = System.IO.File.ReadAllLines "day-6-input"
-    let day6Part1 = runDay6Part1 day6Part1Input
-    printfn "Day 6 - part 1 >> %d" <| day6Part1
+    let day6Input = System.IO.File.ReadAllLines "day-6-input"
+    // let day6Part1 = runDay6Part1 day6Input
+    // printfn "Day 6 - part 1 >> %d" <| day6Part1
+
+    let testMap = [|
+        "COM)B"
+        "B)C"
+        "C)D"
+        "D)E"
+        "E)F"
+        "B)G"
+        "G)H"
+        "D)I"
+        "E)J"
+        "J)K"
+        "K)L"
+        "K)YOU"
+        "I)SAN"
+    |]
+
+    let testOrbitMap = parseOrbitMap testMap
+    let pathToYou = findPathToCom "YOU" testOrbitMap
+    let pathToSanta = findPathToCom "SAN" testOrbitMap
+    printfn "%A" pathToYou
+    printfn "%A" pathToSanta
+
+    let part2OrbitMap = parseOrbitMap day6Input
+
+    let orbitalTransfers = findOrbitalTransfers part2OrbitMap
+
+    printfn "Day 6 - part 2 >> %d" orbitalTransfers
 
     0 // return an integer exit code

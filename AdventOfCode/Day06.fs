@@ -18,7 +18,7 @@ type OrbitMap = {
     orbits : Orbit list
 }
 
-let private parseOrbitMap mapEntries =
+let parseOrbitMap mapEntries =
     let parseEntry entry =
         let regexMatch = System.Text.RegularExpressions.Regex.Match(entry, "(?<orbited>\w+)\)(?<orbiter>\w+)")
         { orbited = regexMatch.Groups.["orbited"].Value; orbiter = regexMatch.Groups.["orbiter"].Value }
@@ -45,11 +45,24 @@ let runDay6Part1 map =
     countOrbits orbitMap
 
 let findPathToCom name orbitMap =
-    // orbitMap.orbits
-    // |> List.fold (fun path body -> body.orbited :: path) []
-
     let rec findPath' name pathSoFar orbits =
         let orbit = List.find (fun o -> o.orbiter = name) orbits
-        if (orbit.orbited = "COM") then "COM" :: pathSoFar else findPath' orbit.orbited (orbit.orbiter :: pathSoFar) orbits
+        if (orbit.orbited = "COM") then "COM" :: orbit.orbiter :: pathSoFar else findPath' orbit.orbited (orbit.orbiter :: pathSoFar) orbits
 
     findPath' name [] orbitMap.orbits
+
+let findOrbitalTransfers orbitMap =
+    let pathToYou = findPathToCom "YOU" orbitMap
+    let pathToSanta = findPathToCom "SAN" orbitMap
+
+    let rec removeCommonElements list1 list2 =
+        match list1, list2 with
+        | [], [] -> [], []
+        | l1, [] -> l1, []
+        | [], l2 -> [], l2
+        | h1 :: t1, h2 :: t2 when h1 = h2 -> removeCommonElements t1 t2
+        | _, _ -> list1, list2
+
+    let uniquePathToYou, uniquePathToSanta = removeCommonElements pathToYou pathToSanta
+
+    uniquePathToYou.Length + uniquePathToSanta.Length - 2
