@@ -6,6 +6,7 @@ open Day2
 open Day3
 open Day4
 open Day5
+open Day6
 
 [<EntryPoint>]
 let main argv =
@@ -62,7 +63,30 @@ let main argv =
     // let day5Computer = day5Part1 readInput
     // printfn "Day 5 - part 1 >> %d" <| (day5Computer.outputs |> List.head)
 
-    let day5Computer' = day5Part2 readInput
-    printfn "Day 5 - part 2 >> %d" <| (day5Computer'.outputs |> List.head)
+    // let day5Computer' = day5Part2 readInput
+    // printfn "Day 5 - part 2 >> %d" <| (day5Computer'.outputs |> List.head)
+
+    //
+    // Day 6
+    //
+
+    // let testMap = @"COM)B
+    //                 B)C
+    //                 C)D
+    //                 D)E
+    //                 E)F
+    //                 B)G
+    //                 G)H
+    //                 D)I
+    //                 E)J
+    //                 J)K
+    //                 K)L"
+
+    // let day6Part1Test1 = runDay6Part1 testMap
+    // printfn "Day 6 - part 1 (Test) >> %d" <| day6Part1Test1
+
+    let day6Part1Input = System.IO.File.ReadAllLines "day-6-input"
+    let day6Part1 = runDay6Part1 day6Part1Input
+    printfn "Day 6 - part 1 >> %d" <| day6Part1
 
     0 // return an integer exit code
